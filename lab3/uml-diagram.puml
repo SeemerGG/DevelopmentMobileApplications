@@ -1,0 +1,58 @@
+@startuml
+class animals.Dog {
+- float Weight
++ void setWeight(float)
++ float getWeight()
++ String Say()
++ String toString()
++ boolean equals(Object)
+}
+class animals.Cat {
+- String EyeColor
++ void setEyeColor(String)
++ String getEyeColor()
++ String Say()
++ String toString()
++ boolean equals(Object)
+}
+class Main {
++ {static} void main(String[])
++ {static} boolean Difrent(Animal,Animal)
+}
+interface animals.AnimalActivityInterface {
++ void do_command()
+}
+interface animals.LifeAnimalInterface {
++ void eat()
++ void sleep()
++ void run()
+}
+class animals.Horse {
+- float Weight
++ void setWeight(float)
++ float getWeight()
++ void setSpeedRun(float)
++ float getSpeedRun()
++ String Say()
+}
+abstract class animals.Animal {
+- String Name
++ void eat()
++ String getType()
++ String getSound()
++ String getName()
++ void do_command()
++ void sleep()
++ void run()
++ {abstract}String Say()
++ String toString()
+}
+
+
+animals.Animal <|-- animals.Dog
+animals.AnimalActivityInterface <|.. animals.Cat
+animals.Animal <|-- animals.Cat
+animals.Animal <|-- animals.Horse
+animals.LifeAnimalInterface <|.. animals.Animal
+animals.AnimalActivityInterface <|.. animals.Animal
+@enduml
