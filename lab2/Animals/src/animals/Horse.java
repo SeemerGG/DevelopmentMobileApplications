@@ -1,4 +1,4 @@
-package src.animals;
+package animals;
 public class Horse extends Animal
 {
     private float Weight, SpeedRun;
@@ -8,7 +8,7 @@ public class Horse extends Animal
         Weight = w;
         SpeedRun = speed;
     }
-`   public void setWeight(float weight)
+    public void setWeight(float weight)
     {
        this.Weight =  weight;
     }
@@ -30,13 +30,14 @@ public class Horse extends Animal
     @Override
     public String Say()
     {
-        return this.Sound;
+        return super.getSound();
     }
-    public String toString()
+    //@Override
+    //public String toString()
     {
-        return super.toString() + "Вес" + Weight + "Скорость бега:" + SpeedRun;
+        //return super.toString() + "Вес" + Weight + "Скорость бега:" + SpeedRun;
     }
 
-    public boolean Equals
+
 
 }

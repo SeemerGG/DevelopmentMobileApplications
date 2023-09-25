@@ -1,0 +1,46 @@
+@startuml
+skinparam classAttributeIconSize 0
+class animals.Horse {
+- float Weight
++ void setWeight(float)
++ float getWeight()
++ void setSpeedRun(float)
++ float getSpeedRun()
++ String Say()
++ String toString()
+}
+class animals.Cat {
+- String EyeColor
++ void setEyeColor(String)
++ String getEyeColor()
++ String Say()
++ String toString()
++ boolean equals(Object)
+}
+class animals.Dog {
+- float Weight
++ void setWeight(float)
++ float getWeight()
++ String Say()
++ String toString()
++ boolean equals(Object)
+}
+abstract class animals.Animal {
+- String Name
++ void eat()
++ String getType()
++ String getSound()
++ String getName()
++ void do_command()
++ void sleep()
++ void run()
++ {abstract}String Say()
++ String toString()
+}
+
+
+animals.Animal <|-- animals.Horse
+animals.Animal <|-- animals.Cat
+animals.Animal <|-- animals.Dog
+animals.Object <|-- animals.Animal
+@enduml
