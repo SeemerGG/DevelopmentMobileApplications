@@ -4,11 +4,23 @@ import java.awt.*;
 
 public class CircleButton extends JButton
 {
-    public Color c;
+    private Color _c;
+
+    public Color getColor()
+    {
+        return _c;
+    }
+
+    public void setColor(Color c)
+    {
+        _c = c;
+        repaint();
+    }
+
     public CircleButton(Color color)
     {
         super();
-        c = color;
+        _c = color;
         setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         setBackground(Color.WHITE);
 
@@ -18,13 +30,11 @@ public class CircleButton extends JButton
     {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
-        g2d.setColor(c);
-        int x = getWidth()/2 ;
-        int y = getHeight()/2 ;
-        g2d.fillOval(x, y, 10, 10);
+        g2d.setColor(_c);
+        g2d.fillOval(3, 3, getWidth()-6, getHeight()-6);
         g2d.setColor(Color.BLACK);
         g2d.setStroke(new BasicStroke(3));
-        g2d.drawOval(0, 0 , 10, 10);
+        g2d.drawOval(3, 3 , getWidth() - 6, getHeight() - 6);
     }
 
 }
