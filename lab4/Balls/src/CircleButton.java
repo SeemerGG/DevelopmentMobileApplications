@@ -5,11 +5,14 @@ import java.awt.*;
 public class CircleButton extends JButton
 {
     private Color _c;
+    private int _number;
 
     public Color getColor()
     {
         return _c;
     }
+
+    public int getNumber(){ return _number; }
 
     public void setColor(Color c)
     {
@@ -17,10 +20,11 @@ public class CircleButton extends JButton
         repaint();
     }
 
-    public CircleButton(Color color)
+    public CircleButton(Color color, int num)
     {
         super();
         _c = color;
+        _number = num;
         setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         setBackground(Color.WHITE);
 

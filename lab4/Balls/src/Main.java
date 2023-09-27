@@ -13,7 +13,7 @@ public class Main {
         f.setLayout(new BoxLayout(f.getContentPane(), BoxLayout.Y_AXIS));
         JLabel score = new JLabel("Счет: 0");
         score.setHorizontalTextPosition(JLabel.CENTER);
-        JPanel p = new Battlefield(81);
+        JPanel p = new Battlefield(9);
         f.add(score);
         f.add(p);
         f.setLocationRelativeTo(null);
