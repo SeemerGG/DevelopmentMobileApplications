@@ -26,10 +26,11 @@ public class Battlefield extends JPanel implements ActionListener
     };
 
     CircleButton prevButton = null;
-
-    public Battlefield(int n)
+    JLabel l = null;
+    public Battlefield(int n, JLabel label)
     {
         super();
+        l = label;
         _demention = n;
         setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         setLayout(new GridLayout(9,9,5,5));
@@ -98,9 +99,9 @@ public class Battlefield extends JPanel implements ActionListener
         tempColor = prevB.getColor();
         list.add(prevB.getNumber());
 
-        for(int k = i + 1; k < _demention; k++)
+        for(int k = 0; k < _demention; k++)
         {
-            CircleButton currB = ((CircleButton) comp[k]);
+            CircleButton currB = ((CircleButton) comp[k + (i * _demention)]);
             Color currColor = currB.getColor();
             if(currColor == tempColor)
             {
@@ -123,7 +124,7 @@ public class Battlefield extends JPanel implements ActionListener
                 list.add(currB.getNumber());
             }
         }
-
+        l.setText(String.format("Cчет: %d", score));
     }
 
     public void bleaching(List<Integer> list)
@@ -131,7 +132,11 @@ public class Battlefield extends JPanel implements ActionListener
         for(int i = 0; i < list.size(); i++)
         {
             whiteButtons.add(list.get(i));
-            ((CircleButton)comp[i]).setColor(Color.WHITE);
+            ((CircleButton)comp[list.get(i)]).setColor(Color.WHITE);
+        }
+
+        if(whiteButtons.size() == 0){
+            JOptionPane.showMessageDialog(this, String.format("Ваш счет %d. Неплохо", score));
         }
     }
 
