@@ -8,6 +8,7 @@ import java.util.stream.IntStream;
 public class Battlefield extends JPanel{
 
     JLabel _label = null;
+    boolean flag = false;
     Battlefield(JLabel l){
         super();
         _label = l;
